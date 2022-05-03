@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 
 class AppConfig {
@@ -9,7 +8,7 @@ class AppConfig {
   }
 
   #config() {
-    this.exp.use(bodyParser.json());
+    this.exp.use(express.json());
     this.exp.use(cors());
 
     this.routes.forEach((route) => {
