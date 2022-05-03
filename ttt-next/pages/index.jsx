@@ -6,7 +6,7 @@ import { WithLoading } from '../util-components';
 // eslint-disable-next-line react/display-name
 const Home = React.memo(() => {
 
-  const { rollNumbers, onChange, onClick, data, loading, error } = useHome();
+  const { rollNumbers, onChange, onClick, data, loading } = useHome();
 
   const listData = React.useMemo(() => {
     return data?.data.map((result) => {

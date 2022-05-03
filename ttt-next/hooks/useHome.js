@@ -13,10 +13,12 @@ function useHome() {
   );
 
   const onClick = React.useCallback(() => {
-    const body = {
-      roll_numbers: rollNumbers.split(","),
-    };
-    reFetch("/results", body);
+    if (rollNumbers !== "") {
+      const body = {
+        roll_numbers: rollNumbers.split(","),
+      };
+      reFetch("/results", body);
+    }
   }, [rollNumbers, reFetch]);
 
   return {
