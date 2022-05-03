@@ -62,4 +62,4 @@ npm run dev
 
 Input: 5,6,9,12,18,20,25,30,32,36,37,38,40,42,45,47,49,50
 
-![Output]("https://github.com/KartikCD/ttt-assignment/assets/output.gif")
+![Output](./assets/output.gif)
