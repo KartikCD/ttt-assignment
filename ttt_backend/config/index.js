@@ -18,7 +18,7 @@ class AppConfig {
 
   boot() {
     this.#config();
-    this.exp.listen(process.env.PORT, () => {
+    this.exp.listen(process.env.PORT || 9001, () => {
       console.log("Server started at port 9001");
     });
   }

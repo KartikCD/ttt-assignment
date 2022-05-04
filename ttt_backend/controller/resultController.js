@@ -4,8 +4,10 @@ const getResults = async (req, res) => {
   try {
     const rollList = req.body.roll_numbers;
 
+    console.log(rollList);
+
     const finalResult = rollList.map((roll) => {
-      return axios.get(process.env.REMOTE_URL, {
+      return axios.get(process.env.REMOTE_URL || "http://34.209.4.89:8099/", {
         params: {
           param: roll,
         },
