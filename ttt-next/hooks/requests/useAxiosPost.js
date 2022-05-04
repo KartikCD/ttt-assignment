@@ -16,7 +16,6 @@ export default function useAxiosPost(url, payload) {
     setLoading(true);
     try {
       const response = await httpCommon.post(url, payload);
-      console.log(response);
       setData(response);
     } catch (err) {
       setError(err.message);
