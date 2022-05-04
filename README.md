@@ -64,4 +64,4 @@ Input: 5,6,9,12,18,20,25,30,32,36,37,38,40,42,45,47,49,50
 
 ![Output](./assets/output.gif)
 
-## [DEMO](https://ttt-assignment.vercel.app/)
+## [Website Link](https://ttt-assignment.vercel.app/)
