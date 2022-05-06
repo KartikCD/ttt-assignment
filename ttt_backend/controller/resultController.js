@@ -1,36 +1,23 @@
 const { default: axios } = require("axios");
+const asyncPool = require("tiny-async-pool");
+
+const fetchResult = async (rollNumber) => {
+  console.log(process.env.REMOTE_URL);
+  const { data } = await axios.get(process.env.REMOTE_URL, {
+    params: {
+      param: rollNumber,
+    },
+  });
+
+  return { status: data, rollNumber };
+};
 
 const getResults = async (req, res) => {
   try {
     const rollList = req.body.roll_numbers;
+    const result = await asyncPool(5, rollList, fetchResult);
 
-    console.log(rollList);
-
-    const finalResult = rollList.map((roll) => {
-      return axios.get(process.env.REMOTE_URL || "http://34.209.4.89:8099/", {
-        params: {
-          param: roll,
-        },
-      });
-    });
-
-    const results = await Promise.all(finalResult);
-
-    const response = results.map((resp) => {
-      const {
-        config: {
-          params: { param },
-        },
-        data,
-      } = resp;
-
-      return {
-        roll_no: param,
-        status: data,
-      };
-    });
-
-    res.status(200).json(response);
+    res.status(200).json(result);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Something went wrong." });

@@ -12,7 +12,7 @@ const Home = React.memo(() => {
     return data?.data.map((result) => {
       return (
         <tr key={result.roll_no}>
-          <td data-label="Roll Number">{result.roll_no}</td>
+          <td data-label="Roll Number">{result.rollNumber}</td>
           <td data-label="Result">{result.status.toUpperCase()}</td>
         </tr>
       )
