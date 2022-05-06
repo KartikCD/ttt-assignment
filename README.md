@@ -26,6 +26,7 @@ npm run dev
   - cors
   - dotenv
   - express
+  - tiny-async-pool
 
 - Frontend
   - next
@@ -46,7 +47,7 @@ npm run dev
 - `routes/resultController.js`: Controller functions to get the requested data from the REMOTE_URl and return it to the user.
 
 - `getResults()` function inside resultController.js file.
-  - This function takes an array of roll numbers as body and it makes requests for each roll number concurrently and waits for the each result using Promise.all().
+  - Runs multiple promise-returning & async functions in a limited concurrency pool. It rejects immediately as soon as one of the promises rejects. It resolves when all the promises completes. It calls the iterator function as soon as possible (under concurrency limit).
 
 ### Frontend
 
